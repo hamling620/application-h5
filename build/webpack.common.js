@@ -7,7 +7,7 @@ module.exports = {
   },
   output: {
     filename: '[name].[fullhash:8].js',
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '..', 'dist'),
     assetModuleFilename: 'images/[hash][ext][query]'
   },
   module: {
@@ -35,15 +35,15 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
-      '@': path.resolve(__dirname, '../src')
+      '@': path.resolve(__dirname, '..', 'src')
     }
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, '../public', 'index.html'),
+      template: path.join(__dirname, '..', 'public', 'index.html'),
       filename: 'index.html',
       title: 'Application App',
-      favicon: path.join(__dirname, '../public', 'favicon.ico')
+      favicon: path.join(__dirname, '..', 'public', 'favicon.ico')
     })
   ]
 }

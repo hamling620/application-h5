@@ -1,4 +1,5 @@
-const EslintPlugin = require('eslint-webpack-plugin')
+const path = require('path')
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 module.exports = {
   mode: 'development',
@@ -9,26 +10,24 @@ module.exports = {
     stats: 'errors-only'
   },
   module: {
-    rules: [
-      {
-        test: /.less$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2
-            }
-          },
-          'postcss-loader',
-          'less-loader'
-        ]
-      }
-    ]
+    rules: [{
+      test: /.less$/,
+      use: [
+        'style-loader',
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 2
+          }
+        },
+        'postcss-loader',
+        'less-loader'
+      ]
+    }]
   },
   plugins: [
-    new EslintPlugin({
-      context: '../src'
+    new ESLintPlugin({
+      context: path.resolve(__dirname, '..', 'src')
     })
   ]
 }
