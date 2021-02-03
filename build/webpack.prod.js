@@ -9,7 +9,7 @@ module.exports = {
   devtool: 'cheap-module-source-map',
   module: {
     rules: [{
-      test: /.less$/,
+      test: /\.less$/,
       use: [
         MiniCssExtractPlugin.loader,
         {
