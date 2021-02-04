@@ -19,6 +19,16 @@ module.exports = {
     'react',
     '@typescript-eslint'
   ],
+  settings: {
+    react: {
+      version: 'detect'
+    },
+    'import/resolver': {
+      webpack: {
+        config: 'build/webpack.config.js'
+      }
+    }
+  },
   rules: {
     'no-use-before-define': [0],
     '@typescript-eslint/no-use-before-define': [1],

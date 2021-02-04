@@ -27,7 +27,8 @@ module.exports = {
   },
   plugins: [
     new ESLintPlugin({
-      context: path.resolve(__dirname, '..', 'src')
+      context: path.join(__dirname, '..', 'src'),
+      extensions: ['ts', 'js', 'tsx', 'jsx']
     })
   ]
 }

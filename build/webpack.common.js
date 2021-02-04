@@ -33,7 +33,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js', 'jsx'],
     alias: {
       '@': path.resolve(__dirname, '..', 'src')
     }
@@ -41,9 +41,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '..', 'public', 'index.html'),
+      favicon: path.join(__dirname, '..', 'public', 'favicon.ico'),
       filename: 'index.html',
-      title: 'Application App',
-      favicon: path.join(__dirname, '..', 'public', 'favicon.ico')
+      title: 'Application App'
     })
   ]
 }

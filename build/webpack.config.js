@@ -11,3 +11,4 @@ module.exports = env => {
       return merge(commonConfig, devConfig)
   }
 }
+
