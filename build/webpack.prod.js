@@ -25,7 +25,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css'
+      filename: 'style/[name].css'
     }),
     new OptimizeCssAssetsWebpackPlugin(),
     new CleanWebpackPlugin()

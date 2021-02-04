@@ -4,11 +4,8 @@ const devConfig = require('./webpack.dev')
 const prodConfig = require('./webpack.prod')
 
 module.exports = env => {
-  switch (env) {
-    case 'production':
-      return merge(commonConfig, prodConfig)
-    default:
-      return merge(commonConfig, devConfig)
+  if (env && env.NODE_ENV) {
+    return merge(commonConfig, prodConfig)
   }
+  return merge(commonConfig, devConfig)
 }
-
