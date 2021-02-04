@@ -1,5 +1,6 @@
 const path = require('path')
 const ESLintPlugin = require('eslint-webpack-plugin')
+const Webpack = require('webpack')
 
 module.exports = {
   mode: 'development',
@@ -7,7 +8,19 @@ module.exports = {
   devServer: {
     contentBase: '../dist',
     port: 3000,
-    stats: 'errors-only'
+    stats: 'errors-only',
+    hot: true,
+    historyApiFallback: true,
+    proxy: {
+      '/api': {
+        target: 'localhost:3001',
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          '^api/': ''
+        }
+      }
+    }
   },
   module: {
     rules: [{
@@ -29,6 +42,7 @@ module.exports = {
     new ESLintPlugin({
       context: path.join(__dirname, '..', 'src'),
       extensions: ['ts', 'js', 'tsx', 'jsx']
-    })
+    }),
+    new Webpack.HotModuleReplacementPlugin()
   ]
 }

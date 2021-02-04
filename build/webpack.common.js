@@ -8,6 +8,7 @@ module.exports = {
   output: {
     filename: '[name].[fullhash:8].js',
     path: path.resolve(__dirname, '..', 'dist'),
+    chunkFilename: '[name].[fullhash:8].chunk.js',
     assetModuleFilename: 'images/[hash][ext][query]'
   },
   module: {

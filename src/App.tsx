@@ -1,12 +1,24 @@
-import React, { FC } from 'react'
-import Hello from '@/components/Hello'
+import React, { FC, lazy, Suspense } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Home from '@/views/Home'
 
 import './App.less'
+
+const Login = lazy(() => import('@/views/Login'))
+const Register = lazy(() => import('@/views/Register'))
 
 const App: FC = () => {
   return (
     <div className="app">
-      <Hello message='hello react' />
+      <Router>
+        <Suspense fallback={<div>loading...</div>}>
+          <Switch>
+            <Route path="/login" component={ Login } />
+            <Route path="/register" component={ Register } />
+            <Route component={ Home } />
+          </Switch>
+        </Suspense>
+      </Router>
     </div>
   )
 }
