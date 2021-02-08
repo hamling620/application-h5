@@ -20,8 +20,6 @@ export const LOGIN = 'LOGIN'
 
 export const UPDATE = 'UPDATE'
 
-export const GET_USERINFO = 'GET_USERINFO'
-
 export interface AuthSuccessResponse {
   pwd: string;
   username: string;

@@ -1,5 +1,6 @@
 import { Reducer } from 'redux'
 import { User, AUTH_SUCCESS, ERROR_MSG, LOAD_DATA, LOGOUT } from '../types/user'
+import { getRedirectPath } from '@/utils'
 
 const initialState: User = {
   isAuth: false,
@@ -15,6 +16,10 @@ const reducer: Reducer<User> = (state = initialState, action) => {
       return {
         ...state,
         msg: 'success',
+        redirectTo: getRedirectPath({
+          type: action.payload.type,
+          avatar: action.payload.avatar
+        }),
         ...action.payload
       }
     case LOAD_DATA:
@@ -26,7 +31,7 @@ const reducer: Reducer<User> = (state = initialState, action) => {
       return {
         ...state,
         msg: action.msg,
-        isAuth: true
+        isAuth: false
       }
     case LOGOUT:
       return {

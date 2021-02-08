@@ -7,6 +7,7 @@ import './App.less'
 
 const Login = lazy(() => import('@/views/Login'))
 const Register = lazy(() => import('@/views/Register'))
+const Boss = lazy(() => import('@/views/Boss'))
 const BossInfo = lazy(() => import('@/views/BossInfo'))
 
 const App: FC = () => {
@@ -17,8 +18,9 @@ const App: FC = () => {
           <Switch>
             <Route path="/login" component={ Login } />
             <Route path="/register" component={ Register } />
-            <AuthRoute exact component={ Home } />
             <AuthRoute path="/bossinfo" exact component={ BossInfo } />
+            <AuthRoute path="/boss" exact component={ Boss } />
+            <AuthRoute exact component={ Home } />
           </Switch>
         </Suspense>
       </Router>
