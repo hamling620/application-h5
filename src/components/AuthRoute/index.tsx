@@ -1,7 +1,8 @@
-import React, { FC, ElementType } from 'react'
+import React, { FC, ElementType, useEffect } from 'react'
 import { Route, Redirect, RouteProps } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '@/store/reducers'
+import { GET_USERINFO } from '@/store/types/user'
 
 interface IProps extends Omit<RouteProps, 'component'> {
   component: ElementType;
@@ -11,8 +12,14 @@ const AuthRoute: FC<IProps> = ({
   component: Component,
   ...rest
 }) => {
+  const dispatch = useDispatch()
   const isAuth = useSelector((state: RootState) => state.user.isAuth)
-  console.log(isAuth)
+
+  useEffect(() => {
+    dispatch({
+      type: GET_USERINFO
+    })
+  }, [])
 
   return (
     <Route

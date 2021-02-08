@@ -2,7 +2,7 @@ import { Reducer } from 'redux'
 import { User, AUTH_SUCCESS, ERROR_MSG, LOAD_DATA, LOGOUT } from '../types/user'
 
 const initialState: User = {
-  isAuth: true,
+  isAuth: false,
   username: '',
   msg: '',
   type: '',
