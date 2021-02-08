@@ -1,9 +1,9 @@
 import React, { FC, ElementType } from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import { Route, Redirect, RouteProps } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/store/reducers'
 
-interface IProps {
+interface IProps extends Omit<RouteProps, 'component'> {
   component: ElementType;
 }
 
@@ -12,6 +12,8 @@ const AuthRoute: FC<IProps> = ({
   ...rest
 }) => {
   const isAuth = useSelector((state: RootState) => state.user.isAuth)
+  console.log(isAuth)
+
   return (
     <Route
       {...rest}

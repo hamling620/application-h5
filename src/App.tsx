@@ -25,7 +25,7 @@ const App: FC = () => {
           <Switch>
             <Route path="/login" component={ Login } />
             <Route path="/register" component={ Register } />
-            <AuthRoute component={ Home } />
+            <AuthRoute exact component={ Home } />
           </Switch>
         </Suspense>
       </Router>

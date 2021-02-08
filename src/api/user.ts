@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+axios.defaults.baseURL = '/api'
 export interface UserBaseInfo {
   username: string;
   pwd: string;

@@ -13,11 +13,11 @@ module.exports = {
     historyApiFallback: true,
     proxy: {
       '/api': {
-        target: 'localhost:3001',
+        target: 'http://localhost:3001',
         changeOrigin: true,
         ws: true,
         pathRewrite: {
-          '^api/': ''
+          '^/api': '/'
         }
       }
     }
