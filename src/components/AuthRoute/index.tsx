@@ -30,7 +30,7 @@ const AuthRoute: FC<IProps> = ({
   return (
     <Route
       {...rest}
-      render={ props => auth ? <Component {...props} /> : <Redirect to="/login" />}
+      render={ props => auth.current ? <Component {...props} /> : <Redirect to="/login" />}
      />
   )
 }

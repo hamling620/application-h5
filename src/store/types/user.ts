@@ -1,5 +1,4 @@
 export interface User {
-  isAuth: boolean;
   username: string;
   msg: string;
   type: string;

@@ -3,7 +3,6 @@ import { User, AUTH_SUCCESS, ERROR_MSG, LOAD_DATA, LOGOUT } from '../types/user'
 import { getRedirectPath } from '@/utils'
 
 const initialState: User = {
-  isAuth: false,
   username: '',
   msg: '',
   type: '',
@@ -30,8 +29,7 @@ const reducer: Reducer<User> = (state = initialState, action) => {
     case ERROR_MSG:
       return {
         ...state,
-        msg: action.msg,
-        isAuth: false
+        msg: action.msg
       }
     case LOGOUT:
       return {
